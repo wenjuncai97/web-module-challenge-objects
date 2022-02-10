@@ -18,7 +18,7 @@ The function should:
 function createMenuItem(name, price, category){
     return {name, price, category};
 }
-console.log(createMenuItem('taco', 8, 'Lunch'));
+// console.log(createMenuItem('taco', 8, 'Lunch'));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Invoke your function!
@@ -30,9 +30,9 @@ Test your createMenuItems function by doing the following:
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
 
-console.log(createMenuItem('bread', 3, 'appetizer'));
-console.log(createMenuItem('pizza', 5, 'Lunch'));
-console.log(createMenuItem('cheesecake', 6, 'Dessert'));
+// console.log(createMenuItem('bread', 3, 'appetizer'));
+// console.log(createMenuItem('pizza', 5, 'Lunch'));
+// console.log(createMenuItem('cheesecake', 6, 'Dessert'));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 You're having a lunch special! 25% off for teachers and students, 10% off for everyone else. Add a method to the 
@@ -62,8 +62,8 @@ const burger = {
   }
 }
 
-console.log(burger.discount('teacher'));
-console.log(burger.discount('public'));
+// console.log(burger.discount('teacher'));
+// console.log(burger.discount('public'));
 
 ///////////////Reviews (MVP)///////////////////
 const reviews = [
@@ -81,7 +81,7 @@ const reviews = [
 Using the reviews array above:
   1. log only Julius' feedback to the console - no function needed 
 */
-console.log(reviews[5].feedback);
+// console.log(reviews[5].feedback);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -90,7 +90,7 @@ Reyna's feedback is missing! Use what you know to do the following: (no function
   2. log the reviews array to the console to check your work
 */
 reviews[7].feedback = "this place is chill with really cool people, great for getting work done on weekdays";
-console.log(reviews);
+// console.log(reviews);
 
 
 
@@ -162,10 +162,16 @@ Use the getReviewsByRating function below to do the following:
   ]
 */
 // write for loop that finds all the ratings that are within 4-4.9 range, push that whole array into getReviewByRating
-//  function getReviewByRating(array) {
-//     if(a)
-//   }
-
+ function getReviewByRating(array, rating) {
+   const newArray = [];
+    for(i = 0; i < array.length; i++){
+      if(array[i].rating >= rating && array[i].rating < rating +1) {
+        newArray.push(array[i]);
+      }
+    }
+    return newArray;
+  }
+// console.log(getReviewByRating(reviews, 4));
   
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪💪   
 Use the getLongReviews function below to do the following:
@@ -180,10 +186,28 @@ Use the getLongReviews function below to do the following:
   ]
 */
 
-function getLongReviews(/* code here */) {
-    /* code here */
+// function getLongReviews(array, words) {
+//     const longReviews = [];
+//     for(i=0; i <array.length; i++) {
+//       if(array[i].feedback.length > words) {
+//         longReviews.push(array[i].feedback);
+
+//       }
+//     }
+//     return longReviews;
+//   }
+//   console.log(getLongReviews(reviews, 15));
+
+function getLongReviews(array, words) {
+  const longReviews = [];
+  for(let i = 0; i < array.length; i++) {
+    if(array[i].feedback.split(' ').length > words) {
+      longReviews.push(array[i].feedback)
+    }
   }
-  
+  return longReviews;
+}
+// console.log(getLongReviews(reviews, 29));
 
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 3: 💪💪💪💪💪💪💪💪💪💪 
 This stretch goal does not use the reviews data!  You create your own object in this stretch goal.
@@ -201,13 +225,16 @@ Use the carMaker function below to do the following:
   Then we called car1.drive(100)
   It would return 110 because it was created with 10 as the odometer and we added 100 to it with the drive method 
 */
-
-
-function carMaker(/* code here */) {
-    /* code here */
-    
+function carMaker(obj, name, odo, after) {
+  let sum = odo + after;
+  obj = {name, odo, after, sum};
+  return obj;
 }
+const car1 = carMaker({}, 'car1', 10, 100);
+console.log(car1);
 
+const car2 = carMaker({}, 'car2', 200, 100)
+console.log(car2);
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
 function foo(){
